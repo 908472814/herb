@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试页面</title>
+</head>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="js/herb-jquery-rest.js"></script>
+<script type="text/javascript">
+
+	//创建一个用户
+	function saveUser() {
+		var url = 'users';
+		var param = {
+			'name' : 'hehuabing'
+		};
+
+		postDate(param, url, function(data) {
+			alert(JSON.stringify(data));
+		})
+	}
+
+	//删除一个用户
+	function delUser() {
+		var url = 'users/1';
+		deleteDate(url,function(data) {
+			alert(1);
+		})
+	}
+
+	//按条件查询一个用户
+	function updateUser() {
+		var url = 'users/1';
+		var param = {
+			'name':'ftt'
+		};
+
+		putDate(param,url,function(data) {
+			alert(JSON.stringify(data));
+		})
+	}
+
+	//按照条件查询
+	function searchUser() {
+		var url ='users/search/findByName?name=hehuabing';
+		getDate(url,function(data,status) {
+			alert(data);
+		})
+	}
+
+	//分页查询所有
+	function queryAllUser(start,pageSize) {
+		var url = 'users?page=0&size=20';
+		getDate(url,function(data,status) {
+			alert(data);
+		})
+	}
+</script>
+<body>
+	<input type="button" value="创建用户" onclick="saveUser()" />
+	<input type="button" value="删除用户" onclick="delUser()" />
+	<input type="button" value="修改用户" onclick="updateUser()" />
+	
+	<input type="button" value="条件查询" onclick="searchUser()" />
+	<input type="button" value="查询分页查询所有" onclick="queryAllUser()" />
+</body>
+</html>
