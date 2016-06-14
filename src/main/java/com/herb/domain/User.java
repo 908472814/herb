@@ -24,7 +24,7 @@ public class User extends AbstractEntity implements Serializable {
 	private String name;
 	
 	@ManyToOne
-	@JoinColumn(name="role_id")
+	@JoinColumn(name="ROLE_ID")
 	private Roles roles;
 	
 	public Roles getRoles() {

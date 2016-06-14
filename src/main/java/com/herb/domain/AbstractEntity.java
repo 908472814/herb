@@ -15,6 +15,9 @@
  */
 package com.herb.domain;
 
+import java.sql.Timestamp;
+
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,6 +34,12 @@ public class AbstractEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@Column(name="CREATE_TIME")
+	private Timestamp createTime;
+	
+	@Column(name="UPDATE_TIME")
+	private Timestamp updateTime;
 
 	/**
 	 * Returns the identifier of the entity.
@@ -69,4 +78,25 @@ public class AbstractEntity {
 	public int hashCode() {
 		return id == null ? 0 : id.hashCode();
 	}
+
+	public Timestamp getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Timestamp createTime) {
+		this.createTime = createTime;
+	}
+
+	public Timestamp getUpdateTime() {
+		if(this.updateTime==null){
+			return new Timestamp(System.currentTimeMillis());
+		}
+		return updateTime;
+	}
+
+	public void setUpdateTime(Timestamp updateTime) {
+		this.updateTime = updateTime;
+	}
+	
+	
 }
