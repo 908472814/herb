@@ -10,7 +10,7 @@ import com.herb.domain.user.Employee;
 
 
 
-@RepositoryRestResource(collectionResourceRel = "employees", path = "Employee")
+@RepositoryRestResource(collectionResourceRel = "employees", path = "employees")
 public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
 
     Page<Employee> findAll(Pageable pageable);
