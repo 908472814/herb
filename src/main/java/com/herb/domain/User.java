@@ -2,10 +2,13 @@ package com.herb.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 /**
  * 角色
@@ -23,16 +26,31 @@ public class User extends AbstractEntity implements Serializable {
 	@Column(nullable = false)
 	private String name;
 	
-	@ManyToOne
-	@JoinColumn(name="ROLE_ID")
-	private Roles roles;
+	@Column(nullable = false)
+	private String pwd;
 	
-	public Roles getRoles() {
-		return roles;
+	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL) 
+	@JoinColumn(name="ROLE_ID")
+	private Role Role;
+	
+	@OneToOne
+	@JoinColumn(name="E_ID")
+	private Employee Employee;
+	
+	public Employee getEmployee() {
+		return Employee;
 	}
 
-	public void setRoles(Roles roles) {
-		this.roles = roles;
+	public void setEmployee(Employee employee) {
+		Employee = employee;
+	}
+
+	public Role getRole() {
+		return Role;
+	}
+
+	public void setRole(Role Role) {
+		this.Role = Role;
 	}
 
 	public String getName() {

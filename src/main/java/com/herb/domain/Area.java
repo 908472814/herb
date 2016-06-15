@@ -1,5 +1,6 @@
 package com.herb.domain;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,8 +12,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="AREA")
-public class Area extends AbstractEntity{
+public class Area extends AbstractEntity implements Serializable{
 	
+	/**
+	 * serialVersionUID
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Column
 	private String name;
 	
