@@ -1,10 +1,12 @@
-package com.herb.domain;
+package com.herb.domain.user;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import com.herb.domain.AbstractEntity;
 
 /**
  * 功能权限

@@ -6,12 +6,14 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.herb.domain.User;
+import com.herb.domain.user.Employee;
 
-@RepositoryRestResource(collectionResourceRel = "users", path = "users")
-public interface UserRepository extends PagingAndSortingRepository<User, Long> {
 
-    Page<User> findAll(Pageable pageable);
+
+@RepositoryRestResource(collectionResourceRel = "employees", path = "Employee")
+public interface EmployeeRepository extends PagingAndSortingRepository<Employee, Long> {
+
+    Page<Employee> findAll(Pageable pageable);
     
-    Page<User> findByName(@Param("name") String name,Pageable pageable);
+    Page<Employee> findByName(@Param("name") String name,Pageable pageable);
 }

@@ -1,13 +1,13 @@
-package com.herb.domain;
+package com.herb.domain.log;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.herb.domain.AbstractEntity;
 @Entity
 @Table(name="LOGINED_USER")
 public class LoginedUser extends AbstractEntity implements Serializable{
@@ -32,9 +32,6 @@ public class LoginedUser extends AbstractEntity implements Serializable{
 	@Column(nullable = false)
 	private String token;
 	
-	@OneToOne
-	@JoinColumn(name="user_id")
-	private User user;
 	
 	public Timestamp getLoginTime() {
 		return loginTime;
@@ -54,11 +51,4 @@ public class LoginedUser extends AbstractEntity implements Serializable{
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public User getUser() {
-		return user;
-	}
-	public void setUser(User user) {
-		this.user = user;
-	}
-	
 }
