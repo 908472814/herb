@@ -1,4 +1,4 @@
-package com.herb.domain.elevator;
+package com.herb.domain;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -9,8 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.herb.domain.AbstractEntity;
 
 @Entity
 @Table(name="AREA")

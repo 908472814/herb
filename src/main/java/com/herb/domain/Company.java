@@ -1,4 +1,4 @@
-package com.herb.domain.user;
+package com.herb.domain;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -9,10 +9,11 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.herb.domain.AbstractEntity;
+import com.herb.domain.user.Employee;
 @Entity
 @Table(name="COMPANY")
 public class Company extends AbstractEntity implements Serializable{
@@ -44,8 +45,19 @@ public class Company extends AbstractEntity implements Serializable{
 	@JoinColumn(name="C_ID")
 	private Set<Employee> employees;
 	
+	@ManyToMany
+	private Set<Company> companies;
+	
 	@ElementCollection
 	private Map<String, String> attributes = new HashMap<String, String>();
+	
+	public Set<Company> getCompanies() {
+		return companies;
+	}
+
+	public void setCompanies(Set<Company> companies) {
+		this.companies = companies;
+	}
 
 	public String getName() {
 		return name;

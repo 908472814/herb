@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.herb.domain.AbstractEntity;
+import com.herb.domain.Company;
 
 @Entity
 @Table(name="EMPLOYEE")
