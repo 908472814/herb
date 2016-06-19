@@ -75,6 +75,18 @@ public class Elevator extends AbstractEntity implements Serializable {
 	@OneToOne
 	private MonitorDevice monitorDevice;
 	
+	@Column
+	private double longitude;
+	
+	@Column
+	private double latitude;
+	
+	@Column
+	private double x;
+	
+	@Column
+	private double y;
+	
 	@OneToMany
 	private Set<ElevatorFaultRecord> elevatorFaultRecord;
 
@@ -232,4 +244,39 @@ public class Elevator extends AbstractEntity implements Serializable {
 	public void setRegistrationCode(String registrationCode) {
 		this.registrationCode = registrationCode;
 	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+	
+	
+	
 }
