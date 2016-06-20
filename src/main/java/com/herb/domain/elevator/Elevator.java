@@ -68,12 +68,26 @@ public class Elevator extends AbstractEntity implements Serializable {
 
 	@Column
 	private Boolean isPeopleTrapped;
+	
+	@Column
+	private Double longitude;
+	
+	@Column
+	private Double latitude;
+	
+	@Column
+	private Double x;
+	
+	@Column
+	private Double y;
 
 	@ManyToOne
 	private ElevatorModel elevatorModel;
 
 	@OneToOne
 	private MonitorDevice monitorDevice;
+	
+	
 	
 	@OneToMany
 	private Set<ElevatorFaultRecord> elevatorFaultRecord;
@@ -203,6 +217,38 @@ public class Elevator extends AbstractEntity implements Serializable {
 
 	public Integer getCheckStatus() {
 		return checkStatus;
+	}
+	
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+	public Double getX() {
+		return x;
+	}
+
+	public void setX(Double x) {
+		this.x = x;
+	}
+
+	public Double getY() {
+		return y;
+	}
+
+	public void setY(Double y) {
+		this.y = y;
 	}
 
 	public void setCheckStatus(Integer checkStatus) {
