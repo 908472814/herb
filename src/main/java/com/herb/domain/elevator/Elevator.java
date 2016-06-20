@@ -80,6 +80,15 @@ public class Elevator extends AbstractEntity implements Serializable {
 	
 	@Column
 	private Double y;
+	
+	@Column
+	private String position;//一号位置
+	
+	@Column
+	private String positionNum;//一号位置一号梯
+	
+	@Column
+	private int floor;
 
 	@ManyToOne
 	private ElevatorModel elevatorModel;
