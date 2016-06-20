@@ -9,7 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -45,19 +44,8 @@ public class Company extends AbstractEntity implements Serializable{
 	@JoinColumn(name="C_ID")
 	private Set<Employee> employees;
 	
-	@ManyToMany
-	private Set<Company> companies;
-	
 	@ElementCollection
 	private Map<String, String> attributes = new HashMap<String, String>();
-	
-	public Set<Company> getCompanies() {
-		return companies;
-	}
-
-	public void setCompanies(Set<Company> companies) {
-		this.companies = companies;
-	}
 
 	public String getName() {
 		return name;

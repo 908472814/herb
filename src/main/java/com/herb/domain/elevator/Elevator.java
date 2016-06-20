@@ -13,7 +13,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ManyToAny;
+
 import com.herb.domain.AbstractEntity;
+import com.herb.domain.AddressDetail;
+import com.herb.domain.Area;
 
 @Entity
 @Table(name = "ELEVATOR")
@@ -68,24 +72,39 @@ public class Elevator extends AbstractEntity implements Serializable {
 
 	@Column
 	private Boolean isPeopleTrapped;
+	
+	@Column
+	private Double longitude;
+	
+	@Column
+	private Double latitude;
+	
+	@Column
+	private Double x;
+	
+	@Column
+	private Double y;
+	
+	@ManyToOne
+	private Area area;
+	
+	@ManyToOne
+	private AddressDetail addressDetail;
+	
+	@Column
+	private String position;//一号位置
+	
+	@Column
+	private String positionNum;//一号位置一号梯
+	
+	@Column
+	private int floor;
 
 	@ManyToOne
 	private ElevatorModel elevatorModel;
 
 	@OneToOne
 	private MonitorDevice monitorDevice;
-	
-	@Column
-	private double longitude;
-	
-	@Column
-	private double latitude;
-	
-	@Column
-	private double x;
-	
-	@Column
-	private double y;
 	
 	@OneToMany
 	private Set<ElevatorFaultRecord> elevatorFaultRecord;
@@ -216,6 +235,38 @@ public class Elevator extends AbstractEntity implements Serializable {
 	public Integer getCheckStatus() {
 		return checkStatus;
 	}
+	
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+	public Double getX() {
+		return x;
+	}
+
+	public void setX(Double x) {
+		this.x = x;
+	}
+
+	public Double getY() {
+		return y;
+	}
+
+	public void setY(Double y) {
+		this.y = y;
+	}
 
 	public void setCheckStatus(Integer checkStatus) {
 		this.checkStatus = checkStatus;
@@ -245,38 +296,43 @@ public class Elevator extends AbstractEntity implements Serializable {
 		this.registrationCode = registrationCode;
 	}
 
-	public double getLongitude() {
-		return longitude;
+	public Area getArea() {
+		return area;
 	}
 
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
+	public void setArea(Area area) {
+		this.area = area;
 	}
 
-	public double getLatitude() {
-		return latitude;
+	public AddressDetail getAddressDetail() {
+		return addressDetail;
 	}
 
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
+	public void setAddressDetail(AddressDetail addressDetail) {
+		this.addressDetail = addressDetail;
 	}
 
-	public double getX() {
-		return x;
+	public String getPosition() {
+		return position;
 	}
 
-	public void setX(double x) {
-		this.x = x;
+	public void setPosition(String position) {
+		this.position = position;
 	}
 
-	public double getY() {
-		return y;
+	public String getPositionNum() {
+		return positionNum;
 	}
 
-	public void setY(double y) {
-		this.y = y;
+	public void setPositionNum(String positionNum) {
+		this.positionNum = positionNum;
 	}
-	
-	
-	
+
+	public int getFloor() {
+		return floor;
+	}
+
+	public void setFloor(int floor) {
+		this.floor = floor;
+	}
 }

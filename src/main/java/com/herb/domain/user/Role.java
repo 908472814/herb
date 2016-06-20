@@ -35,8 +35,7 @@ public class Role extends AbstractEntity implements Serializable {
 	@ManyToMany
 	private Set<FunctionalPermissions> fnctnlPermissions;
 
-	@OneToMany
-	@JoinColumn(name = "role_id")
+	@ManyToMany
 	private Set<Employee> employees;
 
 	public String getName() {

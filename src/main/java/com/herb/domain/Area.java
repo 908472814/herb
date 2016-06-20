@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.herb.domain.elevator.Elevator;
+
 @Entity
 @Table(name="AREA")
 public class Area extends AbstractEntity implements Serializable{
@@ -37,10 +39,14 @@ public class Area extends AbstractEntity implements Serializable{
 	private double latitude;
 	
 	@Column
-	private int hierarchical;
+	private int hierarchical;//层次
 	
 	@Column
 	private String hierarchicalName;
+	
+	@OneToMany
+	private Set<Elevator> elevatores;
+	
 
 	public String getName() {
 		return name;
@@ -96,5 +102,13 @@ public class Area extends AbstractEntity implements Serializable{
 
 	public void setHierarchicalName(String hierarchicalName) {
 		this.hierarchicalName = hierarchicalName;
+	}
+
+	public Set<Elevator> getElevatores() {
+		return elevatores;
+	}
+
+	public void setElevatores(Set<Elevator> elevatores) {
+		this.elevatores = elevatores;
 	}
 }

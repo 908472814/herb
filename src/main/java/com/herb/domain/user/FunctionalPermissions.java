@@ -1,9 +1,12 @@
 package com.herb.domain.user;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.herb.domain.AbstractEntity;
@@ -33,6 +36,9 @@ public class FunctionalPermissions extends AbstractEntity implements Serializabl
 	
 	@Column
 	private String url;
+	
+	@ManyToMany
+	private Set<Role> roles;
 
 	public String getOperation() {
 		return operation;
@@ -64,6 +70,14 @@ public class FunctionalPermissions extends AbstractEntity implements Serializabl
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
 	}
 	
 }

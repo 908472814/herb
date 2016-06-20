@@ -5,11 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -39,11 +37,12 @@ public class Employee extends AbstractEntity implements Serializable{
 	@Column
 	private String phone;
 	
-	@ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)  
+	@ManyToOne
 	@JoinColumn(name="C_ID")
 	private Company company;
 	
 	@ManyToMany
+	@JoinColumn(name="ROLE_ID")
 	private Set<Role> roles;
 	
 	@ElementCollection
