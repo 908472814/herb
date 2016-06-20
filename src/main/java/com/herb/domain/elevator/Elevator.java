@@ -13,7 +13,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ManyToAny;
+
 import com.herb.domain.AbstractEntity;
+import com.herb.domain.AddressDetail;
+import com.herb.domain.Area;
 
 @Entity
 @Table(name = "ELEVATOR")
@@ -81,6 +85,12 @@ public class Elevator extends AbstractEntity implements Serializable {
 	@Column
 	private Double y;
 	
+	@ManyToOne
+	private Area area;
+	
+	@ManyToOne
+	private AddressDetail addressDetail;
+	
 	@Column
 	private String position;//一号位置
 	
@@ -95,8 +105,6 @@ public class Elevator extends AbstractEntity implements Serializable {
 
 	@OneToOne
 	private MonitorDevice monitorDevice;
-	
-	
 	
 	@OneToMany
 	private Set<ElevatorFaultRecord> elevatorFaultRecord;
@@ -286,5 +294,45 @@ public class Elevator extends AbstractEntity implements Serializable {
 
 	public void setRegistrationCode(String registrationCode) {
 		this.registrationCode = registrationCode;
+	}
+
+	public Area getArea() {
+		return area;
+	}
+
+	public void setArea(Area area) {
+		this.area = area;
+	}
+
+	public AddressDetail getAddressDetail() {
+		return addressDetail;
+	}
+
+	public void setAddressDetail(AddressDetail addressDetail) {
+		this.addressDetail = addressDetail;
+	}
+
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+	public String getPositionNum() {
+		return positionNum;
+	}
+
+	public void setPositionNum(String positionNum) {
+		this.positionNum = positionNum;
+	}
+
+	public int getFloor() {
+		return floor;
+	}
+
+	public void setFloor(int floor) {
+		this.floor = floor;
 	}
 }
