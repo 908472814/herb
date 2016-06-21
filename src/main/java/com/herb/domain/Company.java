@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.herb.domain.user.Employee;
+import com.herb.domain.user.User;
 @Entity
 @Table(name="COMPANY")
 public class Company extends AbstractEntity implements Serializable{
@@ -42,7 +42,7 @@ public class Company extends AbstractEntity implements Serializable{
 	
 	@OneToMany
 	@JoinColumn(name="C_ID")
-	private Set<Employee> employees;
+	private Set<User> employees;
 	
 	@ElementCollection
 	private Map<String, String> attributes = new HashMap<String, String>();
@@ -95,11 +95,11 @@ public class Company extends AbstractEntity implements Serializable{
 		this.email = email;
 	}
 
-	public Set<Employee> getEmployees() {
+	public Set<User> getEmployees() {
 		return employees;
 	}
 
-	public void setEmployees(Set<Employee> employees) {
+	public void setEmployees(Set<User> employees) {
 		this.employees = employees;
 	}
 
