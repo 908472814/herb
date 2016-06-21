@@ -5,9 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.herb.domain.AbstractEntity;
@@ -30,13 +28,13 @@ public class Role extends AbstractEntity implements Serializable {
 	private String name;
 
 	@Column
-	private String desc;
+	private String describe;
 	
 	@ManyToMany
 	private Set<FunctionalPermissions> fnctnlPermissions;
 
 	@ManyToMany
-	private Set<Employee> employees;
+	private Set<User> employees;
 
 	public String getName() {
 		return name;
@@ -50,13 +48,6 @@ public class Role extends AbstractEntity implements Serializable {
 		this.name = name;
 	}
 
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
 
 //	public Set<User> getUser() {
 //		return user;
@@ -67,6 +58,14 @@ public class Role extends AbstractEntity implements Serializable {
 //	}
 
 	
+	public String getDescribe() {
+		return describe;
+	}
+
+	public void setDescribe(String describe) {
+		this.describe = describe;
+	}
+
 	public Role() {
 
 	}

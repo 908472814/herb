@@ -39,7 +39,7 @@ public class MonitorDevice extends AbstractEntity implements Serializable{
 	private Boolean hasUPS;
 	
 	@Column
-	private String desc;
+	private String describe;
 	
 	@OneToOne
 	private Elevator elevator;
@@ -87,11 +87,12 @@ public class MonitorDevice extends AbstractEntity implements Serializable{
 	public void setHasUPS(Boolean hasUPS) {
 		this.hasUPS = hasUPS;
 	}
-	public String getDesc() {
-		return desc;
+	
+	public String getDescribe() {
+		return describe;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescribe(String describe) {
+		this.describe = describe;
 	}
 	public String getSoftVersion() {
 		return softVersion;

@@ -18,7 +18,7 @@ import com.herb.domain.Company;
 
 @Entity
 @Table(name="EMPLOYEE")
-public class Employee extends AbstractEntity implements Serializable{
+public class User extends AbstractEntity implements Serializable{
 	
 	/**
 	 * serialVersionUID
