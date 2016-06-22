@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import com.herb.domain.elevator.Elevator;
 
 @Entity
-@Table(name="Area")
+@Table(name="AREA")
 public class Area extends AbstractEntity implements Serializable{
 	
 	/**
@@ -21,27 +21,27 @@ public class Area extends AbstractEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column
+	@Column(name="NAME")
 	private String name;
 	
 	@ManyToOne
-	@JoinColumn(name="p_id")
+	@JoinColumn(name="P_ID")
 	private Area pArea;
 	
 	@OneToMany
-	@JoinColumn(name="p_id")
+	@JoinColumn(name="P_ID")
 	private Set<Area> cAreas;
 	
-	@Column
+	@Column(name="LONGITUDE")
 	private double longitude;
 	
-	@Column
+	@Column(name="LATITUDE")
 	private double latitude;
 	
-	@Column
+	@Column(name="HIERARCHICAL")
 	private int hierarchical;//层次
 	
-	@Column
+	@Column(name="HIERARCHICALNAME")
 	private String hierarchicalName;
 	
 	@OneToMany

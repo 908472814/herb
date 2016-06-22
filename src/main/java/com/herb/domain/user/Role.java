@@ -17,18 +17,18 @@ import com.herb.domain.AbstractEntity;
  *
  */
 @Entity
-@Table(name="Role")
+@Table(name="ROLE")
 public class Role extends AbstractEntity implements Serializable {
 	/**
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(nullable = false)
+	@Column(name="NAME")
 	private String name;
 
 	@ManyToMany
-	private Set<FunctionalPermissions> fnctnlPermissions;
+	private Set<FunctionalPermission> fnctnlPermissions;
 
 	public String getName() {
 		return name;
@@ -55,11 +55,11 @@ public class Role extends AbstractEntity implements Serializable {
 
 	}
 
-	public Set<FunctionalPermissions> getFnctnlPermissions() {
+	public Set<FunctionalPermission> getFnctnlPermissions() {
 		return fnctnlPermissions;
 	}
 
-	public void setFnctnlPermissions(Set<FunctionalPermissions> fnctnlPermissions) {
+	public void setFnctnlPermissions(Set<FunctionalPermission> fnctnlPermissions) {
 		this.fnctnlPermissions = fnctnlPermissions;
 	}
 

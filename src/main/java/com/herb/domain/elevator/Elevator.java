@@ -19,7 +19,7 @@ import com.herb.domain.AddressDetail;
 import com.herb.domain.Area;
 
 @Entity
-@Table(name = "Elevator")
+@Table(name = "ELEVATOR")
 public class Elevator extends AbstractEntity implements Serializable {
 
 	/**
@@ -27,61 +27,61 @@ public class Elevator extends AbstractEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column
+	@Column(name="SERIAL_NUM")
 	private String serialNum;
 
-	@Column
+	@Column(name="ELEVATOR_TYPE")
 	private Integer elevatorType;
 
-	@Column
+	@Column(name="DRAG_MODE")
 	private Integer dragMode;
 
-	@Column
+	@Column(name="CONTROL_MODE")
 	private Integer controlMode;
 
-	@Column
+	@Column(name="ELEVATOR_FNT_CLASS")
 	private Integer elevatorFntClass;
 
-	@Column
+	@Column(name="SPEED")
 	private Integer speed;
 
-	@Column
+	@Column(name="RATED_LOAD")
 	private Integer ratedLoad;
 
-	@Column
+	@Column(name="PASSENGERS_NUMBER")
 	private Integer passengersNumber;
 
-	@Column
+	@Column(name="REGISTRATION_CODE")
 	private String registrationCode;
 
-	@Column
+	@Column(name="RUN_STATUS")
 	private Integer runStatus;
 
-	@Column
+	@Column(name="PAY_STAUTS")
 	private Integer payStauts;
 
-	@Column
+	@Column(name="ON_LINESTATUS")
 	private Integer onLineStatus;
 
-	@Column
+	@Column(name="CHECK_STATUS")
 	private Integer checkStatus;
 
-	@Column
+	@Column(name="HEALTH_STATUS")
 	private Integer healthStatus;
 
-	@Column
+	@Column(name="IS_PEOPLE_TRAPPED")
 	private Boolean isPeopleTrapped;
 	
-	@Column
+	@Column(name="LONGITUDE")
 	private Double longitude;
 	
-	@Column
+	@Column(name="LATITUDE")
 	private Double latitude;
 	
-	@Column
+	@Column(name="X")
 	private Double x;
 	
-	@Column
+	@Column(name="Y")
 	private Double y;
 	
 	@ManyToOne
@@ -90,13 +90,13 @@ public class Elevator extends AbstractEntity implements Serializable {
 	@ManyToOne
 	private AddressDetail addressDetail;
 	
-	@Column
+	@Column(name="POSITION")
 	private String position;//一号位置
 	
-	@Column
+	@Column(name="POSITIONNUM")
 	private String positionNum;//一号位置一号梯
 	
-	@Column
+	@Column(name="FLOOR")
 	private int floor;
 
 	@ManyToOne
@@ -106,7 +106,7 @@ public class Elevator extends AbstractEntity implements Serializable {
 	private MonitorDevice monitorDevice;
 	
 	@OneToMany
-	@JoinColumn(name="elevator_id")
+	@JoinColumn(name="ELEVATOR_ID")
 	private Set<ElevatorFaultRecord> elevatorFaultRecord;
 
 	@ElementCollection

@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 import com.herb.domain.user.User;
 @Entity
-@Table(name="Company")
+@Table(name="COMPANY")
 public class Company extends AbstractEntity implements Serializable{
 
 	/**
@@ -22,26 +22,26 @@ public class Company extends AbstractEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Column(nullable = false)
+	@Column(name="NAME")
 	private String name;
 	
-	@Column(nullable = false)
+	@Column(name="TYPE")
 	private Integer type;
 	
-	@Column
+	@Column(name="ADDR")
 	private String addr;
 	
-	@Column
+	@Column(name="PHONE")
 	private String phone;
 	
-	@Column
+	@Column(name="FAX")
 	private String fax;
 	
-	@Column
+	@Column(name="EMAIL")
 	private String email;
 	
 	@OneToMany
-	@JoinColumn(name="c_id")
+	@JoinColumn(name="C_ID")
 	private Set<User> user;
 	
 	@ElementCollection

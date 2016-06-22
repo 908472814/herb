@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import com.herb.domain.AbstractEntity;
 
 @Entity
-@Table(name = "ElevatorFaultRecord")
+@Table(name = "ELEVATOR_FAULT_RECORD")
 public class ElevatorFaultRecord extends AbstractEntity implements Serializable{
 
 	/**
@@ -22,7 +22,7 @@ public class ElevatorFaultRecord extends AbstractEntity implements Serializable{
 	@ManyToOne
 	private FaultCode faultCode;
 	
-	@Column
+	@Column(name="HAPPEND_TIME")
 	private Timestamp happendTime;
 
 	public FaultCode getFaultCode() {

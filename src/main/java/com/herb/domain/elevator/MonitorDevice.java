@@ -4,12 +4,11 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.herb.domain.AbstractEntity;
 @Entity
-@Table(name="MonitorDevice")
+@Table(name="MONITOR_DEVICE")
 public class MonitorDevice extends AbstractEntity implements Serializable{
 	
 	/**
@@ -17,36 +16,27 @@ public class MonitorDevice extends AbstractEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column
+	@Column(name="SERIAL_NUM")
 	private String serialNum;
 	
-	@Column
+	@Column(name="TYPE")
 	private String type;
 	
-	@Column
+	@Column(name="VERSION")
 	private String version;
 	
-	@Column
+	@Column(name="SOFT_VERSION")
 	private String softVersion;
 	
-	@Column
+	@Column(name="COMMUNICATION_MODE")
 	private String communicationMode;
 	
-	@Column
+	@Column(name="INPUT_VOLTAGE")
 	private String inputVoltage;
 	
-	@Column
+	@Column(name="HAS_UPS")
 	private Boolean hasUPS;
 	
-	@OneToOne
-	private Elevator elevator;
-	
-	public Elevator getElevator() {
-		return elevator;
-	}
-	public void setElevator(Elevator elevator) {
-		this.elevator = elevator;
-	}
 	public String getSerialNum() {
 		return serialNum;
 	}

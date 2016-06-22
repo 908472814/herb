@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AddressDetail")
+@Table(name="ADDRESS_DETAIL")
 public class AddressDetail extends AbstractEntity implements Serializable{
 	
 	/**
@@ -15,7 +15,7 @@ public class AddressDetail extends AbstractEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column
+	@Column(name="DETAIL")
 	private String detail;
 	
 	public String getDetail() {

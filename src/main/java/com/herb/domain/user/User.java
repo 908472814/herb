@@ -17,7 +17,7 @@ import com.herb.domain.AbstractEntity;
 import com.herb.domain.Company;
 
 @Entity
-@Table(name="User")
+@Table(name="USER")
 public class User extends AbstractEntity implements Serializable{
 	
 	/**
@@ -25,24 +25,24 @@ public class User extends AbstractEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Column
+	@Column(name="NAME")
 	private String name;
 	
-	@Column(nullable = false)
+	@Column(name="ACCOUNT")
 	private String account;
 	
-	@Column(nullable = false)
+	@Column(name="PWD")
 	private String pwd;
 	
-	@Column
+	@Column(name="PHONE")
 	private String phone;
 	
 	@ManyToOne
-	@JoinColumn(name="c_id")
+	@JoinColumn(name="C_ID")
 	private Company company;
 	
 	@ManyToMany
-	@JoinColumn(name="role_id")
+	@JoinColumn(name="ROLE_ID")
 	private Set<Role> roles;
 	
 	@ElementCollection

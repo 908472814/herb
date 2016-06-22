@@ -14,22 +14,22 @@ import com.herb.domain.AbstractEntity;
  *
  */
 @Entity
-@Table(name="FunctionalPermissions")
-public class FunctionalPermissions extends AbstractEntity implements Serializable{
+@Table(name="FUNCTIONAL_PERMISSION")
+public class FunctionalPermission extends AbstractEntity implements Serializable{
 
 	/**
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Column(nullable = false)
+	@Column(name="NAME")
 	private String name;
 	
 	
-	@Column
+	@Column(name="OPERATION")
 	private String operation;
 	
-	@Column
+	@Column(name="URL")
 	private String url;
 	
 //	@ManyToMany
