@@ -17,7 +17,7 @@ import com.herb.domain.AbstractEntity;
 import com.herb.domain.Company;
 
 @Entity
-@Table(name="EMPLOYEE")
+@Table(name="USER")
 public class User extends AbstractEntity implements Serializable{
 	
 	/**
