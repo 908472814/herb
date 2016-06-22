@@ -14,7 +14,7 @@ import com.herb.domain.AbstractEntity;
  *
  */
 @Entity
-@Table(name="FUNCTIONAL_PERMISSIONS")
+@Table(name="FunctionalPermissions")
 public class FunctionalPermissions extends AbstractEntity implements Serializable{
 
 	/**

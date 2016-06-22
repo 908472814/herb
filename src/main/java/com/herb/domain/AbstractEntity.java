@@ -35,10 +35,10 @@ public class AbstractEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(name="CREATE_TIME")
+	@Column(name="createTime")
 	private Timestamp createTime;
 	
-	@Column(name="UPDATE_TIME")
+	@Column(name="updateTime")
 	private Timestamp updateTime;
 
 	/**

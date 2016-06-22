@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import com.herb.domain.AbstractEntity;
 
 @Entity
-@Table(name="ELEVATORMODEL")
+@Table(name="ElevatorModel")
 public class ElevatorModel extends AbstractEntity implements Serializable{
 
 	/**

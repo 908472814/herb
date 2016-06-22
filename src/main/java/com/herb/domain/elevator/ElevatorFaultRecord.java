@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import com.herb.domain.AbstractEntity;
 
 @Entity
-@Table(name = "ELEVATORFAULTRECORD")
+@Table(name = "ElevatorFaultRecord")
 public class ElevatorFaultRecord extends AbstractEntity implements Serializable{
 
 	/**

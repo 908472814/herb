@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import com.herb.domain.AbstractEntity;
 @Entity
-@Table(name="LOGINED_USER")
+@Table(name="LoginedUser")
 public class LoginedUser extends AbstractEntity implements Serializable{
 
 	/**

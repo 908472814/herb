@@ -17,7 +17,7 @@ import com.herb.domain.AbstractEntity;
 import com.herb.domain.Company;
 
 @Entity
-@Table(name="USER")
+@Table(name="User")
 public class User extends AbstractEntity implements Serializable{
 	
 	/**
@@ -38,11 +38,11 @@ public class User extends AbstractEntity implements Serializable{
 	private String phone;
 	
 	@ManyToOne
-	@JoinColumn(name="C_ID")
+	@JoinColumn(name="c_id")
 	private Company company;
 	
 	@ManyToMany
-	@JoinColumn(name="ROLE_ID")
+	@JoinColumn(name="role_id")
 	private Set<Role> roles;
 	
 	@ElementCollection

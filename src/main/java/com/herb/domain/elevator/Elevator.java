@@ -19,7 +19,7 @@ import com.herb.domain.AddressDetail;
 import com.herb.domain.Area;
 
 @Entity
-@Table(name = "ELEVATOR")
+@Table(name = "Elevator")
 public class Elevator extends AbstractEntity implements Serializable {
 
 	/**
@@ -106,7 +106,7 @@ public class Elevator extends AbstractEntity implements Serializable {
 	private MonitorDevice monitorDevice;
 	
 	@OneToMany
-	@JoinColumn(name="ELEVATOR_ID")
+	@JoinColumn(name="elevator_id")
 	private Set<ElevatorFaultRecord> elevatorFaultRecord;
 
 	@ElementCollection

@@ -17,7 +17,7 @@ import com.herb.domain.AbstractEntity;
  *
  */
 @Entity
-@Table(name="ROLE")
+@Table(name="Role")
 public class Role extends AbstractEntity implements Serializable {
 	/**
 	 * serialVersionUID

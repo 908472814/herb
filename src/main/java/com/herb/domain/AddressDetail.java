@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ADDRESSDETAIL")
+@Table(name="AddressDetail")
 public class AddressDetail extends AbstractEntity implements Serializable{
 	
 	/**

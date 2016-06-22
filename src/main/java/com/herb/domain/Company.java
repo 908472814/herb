@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 import com.herb.domain.user.User;
 @Entity
-@Table(name="COMPANY")
+@Table(name="Company")
 public class Company extends AbstractEntity implements Serializable{
 
 	/**
@@ -41,8 +41,8 @@ public class Company extends AbstractEntity implements Serializable{
 	private String email;
 	
 	@OneToMany
-	@JoinColumn(name="C_ID")
-	private Set<User> employees;
+	@JoinColumn(name="c_id")
+	private Set<User> user;
 	
 	@ElementCollection
 	private Map<String, String> attributes = new HashMap<String, String>();
@@ -95,12 +95,12 @@ public class Company extends AbstractEntity implements Serializable{
 		this.email = email;
 	}
 
-	public Set<User> getEmployees() {
-		return employees;
+	public Set<User> getUser() {
+		return user;
 	}
 
-	public void setEmployees(Set<User> employees) {
-		this.employees = employees;
+	public void setUser(Set<User> user) {
+		this.user = user;
 	}
 
 	public Map<String, String> getAttributes() {

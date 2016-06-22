@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import com.herb.domain.AbstractEntity;
 @Entity
-@Table(name="MONITORDEVICE")
+@Table(name="MonitorDevice")
 public class MonitorDevice extends AbstractEntity implements Serializable{
 	
 	/**
