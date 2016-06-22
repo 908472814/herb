@@ -13,8 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.ManyToAny;
-
 import com.herb.domain.AbstractEntity;
 import com.herb.domain.AddressDetail;
 import com.herb.domain.Area;
@@ -335,4 +333,6 @@ public class Elevator extends AbstractEntity implements Serializable {
 	public void setFloor(int floor) {
 		this.floor = floor;
 	}
+	
+	
 }
