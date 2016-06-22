@@ -33,13 +33,13 @@ public class Area extends AbstractEntity implements Serializable{
 	private Set<Area> cAreas;
 	
 	@Column(name="LONGITUDE")
-	private double longitude;
+	private Double longitude;
 	
 	@Column(name="LATITUDE")
-	private double latitude;
+	private Double latitude;
 	
 	@Column(name="HIERARCHICAL")
-	private int hierarchical;//层次
+	private Integer hierarchical;//层次
 	
 	@Column(name="HIERARCHICALNAME")
 	private String hierarchicalName;
@@ -72,28 +72,28 @@ public class Area extends AbstractEntity implements Serializable{
 		this.cAreas = cAreas;
 	}
 
-	public double getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
-
-	public double getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-
-	public int getHierarchical() {
+	public Integer getHierarchical() {
 		return hierarchical;
 	}
 
-	public void setHierarchical(int hierarchical) {
+	public void setHierarchical(Integer hierarchical) {
 		this.hierarchical = hierarchical;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
 	}
 
 	public String getHierarchicalName() {
