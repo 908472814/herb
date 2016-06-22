@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.herb.domain.AbstractEntity;
@@ -36,6 +38,9 @@ public class MonitorDevice extends AbstractEntity implements Serializable{
 	
 	@Column(name="HAS_UPS")
 	private Boolean hasUPS;
+	
+	@ManyToOne
+	private MonitorDevModel monitorDevModel;
 	
 	public String getSerialNum() {
 		return serialNum;
@@ -81,5 +86,10 @@ public class MonitorDevice extends AbstractEntity implements Serializable{
 	public void setSoftVersion(String softVersion) {
 		this.softVersion = softVersion;
 	}
-	
+	public MonitorDevModel getMonitorDevModel() {
+		return monitorDevModel;
+	}
+	public void setMonitorDevModel(MonitorDevModel monitorDevModel) {
+		this.monitorDevModel = monitorDevModel;
+	}
 }
