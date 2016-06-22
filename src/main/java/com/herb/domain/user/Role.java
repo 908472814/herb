@@ -27,9 +27,6 @@ public class Role extends AbstractEntity implements Serializable {
 	@Column(nullable = false)
 	private String name;
 
-	@Column
-	private String describe;
-	
 	@ManyToMany
 	private Set<FunctionalPermissions> fnctnlPermissions;
 
@@ -56,15 +53,6 @@ public class Role extends AbstractEntity implements Serializable {
 //	public void setUser(Set<User> user) {
 //		this.user = user;
 //	}
-
-	
-	public String getDescribe() {
-		return describe;
-	}
-
-	public void setDescribe(String describe) {
-		this.describe = describe;
-	}
 
 	public Role() {
 

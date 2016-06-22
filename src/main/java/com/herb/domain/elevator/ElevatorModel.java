@@ -21,7 +21,7 @@ public class ElevatorModel extends AbstractEntity implements Serializable{
 	private String modelName;
 	
 	@Column
-	private String desc;
+	private String modelCode;
 
 	public String getModelName() {
 		return modelName;
@@ -31,14 +31,13 @@ public class ElevatorModel extends AbstractEntity implements Serializable{
 		this.modelName = modelName;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getModelCode() {
+		return modelCode;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setModelCode(String modelCode) {
+		this.modelCode = modelCode;
 	}
-	
 	
 	
 }

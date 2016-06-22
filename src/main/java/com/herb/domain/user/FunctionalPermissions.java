@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -28,8 +27,6 @@ public class FunctionalPermissions extends AbstractEntity implements Serializabl
 	@Column(nullable = false)
 	private String name;
 	
-	@Column
-	private String desc;
 	
 	@Column
 	private String operation;
@@ -56,13 +53,6 @@ public class FunctionalPermissions extends AbstractEntity implements Serializabl
 		this.name = name;
 	}
 
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
 
 	public String getUrl() {
 		return url;

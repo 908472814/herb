@@ -38,9 +38,6 @@ public class MonitorDevice extends AbstractEntity implements Serializable{
 	@Column
 	private Boolean hasUPS;
 	
-	@Column
-	private String describe;
-	
 	@OneToOne
 	private Elevator elevator;
 	
@@ -88,12 +85,6 @@ public class MonitorDevice extends AbstractEntity implements Serializable{
 		this.hasUPS = hasUPS;
 	}
 	
-	public String getDescribe() {
-		return describe;
-	}
-	public void setDescribe(String describe) {
-		this.describe = describe;
-	}
 	public String getSoftVersion() {
 		return softVersion;
 	}
