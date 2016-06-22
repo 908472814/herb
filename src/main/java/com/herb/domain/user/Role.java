@@ -30,9 +30,6 @@ public class Role extends AbstractEntity implements Serializable {
 	@ManyToMany
 	private Set<FunctionalPermissions> fnctnlPermissions;
 
-	@ManyToMany
-	private Set<User> employees;
-
 	public String getName() {
 		return name;
 	}
