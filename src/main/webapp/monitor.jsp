@@ -24,6 +24,7 @@ monitorDevMgr.controller('monitorDevMgrController', function($scope,$http) {
 			      "serialNum" : $scope.devSerialNum,
 			      "version" : "0",
 			      "softVersion" : "11",
+			      "attributes" : {"485_addr":$scope.attributes485},
 			      "communicationMode" : "485",
 			      "monitorDevModel" : {
 			        "id":1
@@ -56,7 +57,7 @@ monitorDevMgr.controller('monitorDevMgrController', function($scope,$http) {
 				{{dev.serialNum}}
 			</th>
 			<th>
-				{{dev.serialNum}}
+				{{dev.attributes.485_addr}}
 			</th>
 			<th>
 				{{dev.createTime}}
