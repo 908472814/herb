@@ -8,12 +8,11 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.ManyToAny;
 
 import com.herb.domain.AbstractEntity;
 import com.herb.domain.AddressDetail;
@@ -28,62 +27,71 @@ public class Elevator extends AbstractEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column
+	@Column(name="SERIAL_NUM")
 	private String serialNum;
 
-	@Column
-	private Integer elevatorType;
+	@Column(name="ELEVATOR_TYPE")
+	private Integer elevatorType;//种类。曳引式电梯，液压电梯，自动扶梯，自动人行道
 
-	@Column
-	private Integer dragMode;
+	@Column(name="DRAG_MODE")
+	private Integer dragMode;//拖动方式，交流，直流，液压
+	
+	@Column(name="DRIVE_MODE")
+	private Integer driveMode;//驱动方式，强制驱动电梯，曳引驱动电梯，液压电梯
 
-	@Column
-	private Integer controlMode;
+	@Column(name="CONTROL_MODE")
+	private Integer controlMode;//控制方式
 
-	@Column
-	private Integer elevatorFntClass;
+	@Column(name="ELEVATOR_FNT_CLASS")
+	private Integer elevatorFntClass;//功能分类，乘客电梯，载货电梯，客货两用，病床电梯，住宅电梯，杂物电梯，船用电梯，观光电梯，汽车电梯
 
-	@Column
+	@Column(name="SPEED")
 	private Integer speed;
 
-	@Column
+	@Column(name="RATED_LOAD")
 	private Integer ratedLoad;
 
-	@Column
+	@Column(name="PASSENGERS_NUMBER")
 	private Integer passengersNumber;
 
-	@Column
+	@Column(name="REGISTRATION_CODE")
 	private String registrationCode;
 
-	@Column
+	@Column(name="RUN_STATUS")
 	private Integer runStatus;
 
-	@Column
+	@Column(name="PAY_STAUTS")
 	private Integer payStauts;
 
-	@Column
+	@Column(name="ON_LINESTATUS")
 	private Integer onLineStatus;
 
-	@Column
+	@Column(name="CHECK_STATUS")
 	private Integer checkStatus;
 
-	@Column
+	@Column(name="HEALTH_STATUS")
 	private Integer healthStatus;
 
-	@Column
+	@Column(name="IS_PEOPLE_TRAPPED")
 	private Boolean isPeopleTrapped;
 	
-	@Column
+	@Column(name="LONGITUDE")
 	private Double longitude;
 	
-	@Column
+	@Column(name="LATITUDE")
 	private Double latitude;
 	
-	@Column
+	@Column(name="X")
 	private Double x;
 	
-	@Column
+	@Column(name="Y")
 	private Double y;
+	
+	@Column(name="LOCATION")
+	private String location;
+	
+	@Column(name="SUB_LOCATION")
+	private String subLocation;
 	
 	@ManyToOne
 	private Area area;
@@ -91,33 +99,44 @@ public class Elevator extends AbstractEntity implements Serializable {
 	@ManyToOne
 	private AddressDetail addressDetail;
 	
-	@Column
-	private String position;//一号位置
+	@Column(name="NAME")
+	private String name;
 	
-	@Column
-	private String positionNum;//一号位置一号梯
-	
-	@Column
+	@Column(name="FLOOR")
 	private int floor;
 
 	@ManyToOne
-	private ElevatorModel elevatorModel;
+	private ElevatorModel elevatorModel;//电梯型号
 
 	@OneToOne
+	@JoinColumn(name="MONITORDEVICE_ID")
 	private MonitorDevice monitorDevice;
 	
 	@OneToMany
-	private Set<ElevatorFaultRecord> elevatorFaultRecord;
+	@JoinColumn(name="ELEVATOR_ID")
+	private Set<ElevatorFaultRecord> elevatorFaultRecordes;
+	
+	@OneToMany
+	@JoinColumn(name="ELEVATOR_ID")
+	private Set<ElevatorSignalRecord> elevatorSignalRecordes;
 
 	@ElementCollection
 	private Map<String, String> attributes = new HashMap<String, String>();
 
-	public Set<ElevatorFaultRecord> getElevatorFaultRecord() {
-		return elevatorFaultRecord;
+	public Set<ElevatorFaultRecord> getElevatorFaultRecordes() {
+		return elevatorFaultRecordes;
 	}
 
-	public void setElevatorFaultRecord(Set<ElevatorFaultRecord> elevatorFaultRecord) {
-		this.elevatorFaultRecord = elevatorFaultRecord;
+	public void setElevatorFaultRecordes(Set<ElevatorFaultRecord> elevatorFaultRecordes) {
+		this.elevatorFaultRecordes = elevatorFaultRecordes;
+	}
+
+	public Set<ElevatorSignalRecord> getElevatorSignalRecordes() {
+		return elevatorSignalRecordes;
+	}
+
+	public void setElevatorSignalRecordes(Set<ElevatorSignalRecord> elevatorSignalRecordes) {
+		this.elevatorSignalRecordes = elevatorSignalRecordes;
 	}
 
 	public String getSerialNum() {
@@ -311,21 +330,13 @@ public class Elevator extends AbstractEntity implements Serializable {
 	public void setAddressDetail(AddressDetail addressDetail) {
 		this.addressDetail = addressDetail;
 	}
-
-	public String getPosition() {
-		return position;
+	
+	public String getName() {
+		return name;
 	}
 
-	public void setPosition(String position) {
-		this.position = position;
-	}
-
-	public String getPositionNum() {
-		return positionNum;
-	}
-
-	public void setPositionNum(String positionNum) {
-		this.positionNum = positionNum;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public int getFloor() {
@@ -335,4 +346,29 @@ public class Elevator extends AbstractEntity implements Serializable {
 	public void setFloor(int floor) {
 		this.floor = floor;
 	}
+
+	public Integer getDriveMode() {
+		return driveMode;
+	}
+
+	public void setDriveMode(Integer driveMode) {
+		this.driveMode = driveMode;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getSubLocation() {
+		return subLocation;
+	}
+
+	public void setSubLocation(String subLocation) {
+		this.subLocation = subLocation;
+	}
+	
 }

@@ -21,7 +21,7 @@ public class Area extends AbstractEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column
+	@Column(name="NAME")
 	private String name;
 	
 	@ManyToOne
@@ -32,16 +32,16 @@ public class Area extends AbstractEntity implements Serializable{
 	@JoinColumn(name="P_ID")
 	private Set<Area> cAreas;
 	
-	@Column
-	private double longitude;
+	@Column(name="LONGITUDE")
+	private Double longitude;
 	
-	@Column
-	private double latitude;
+	@Column(name="LATITUDE")
+	private Double latitude;
 	
-	@Column
-	private int hierarchical;//层次
+	@Column(name="HIERARCHICAL")
+	private Integer hierarchical;//层次
 	
-	@Column
+	@Column(name="HIERARCHICALNAME")
 	private String hierarchicalName;
 	
 	@OneToMany
@@ -72,28 +72,28 @@ public class Area extends AbstractEntity implements Serializable{
 		this.cAreas = cAreas;
 	}
 
-	public double getLongitude() {
+	public Double getLongitude() {
 		return longitude;
 	}
 
-	public void setLongitude(double longitude) {
-		this.longitude = longitude;
-	}
-
-	public double getLatitude() {
+	public Double getLatitude() {
 		return latitude;
 	}
 
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-
-	public int getHierarchical() {
+	public Integer getHierarchical() {
 		return hierarchical;
 	}
 
-	public void setHierarchical(int hierarchical) {
+	public void setHierarchical(Integer hierarchical) {
 		this.hierarchical = hierarchical;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
 	}
 
 	public String getHierarchicalName() {

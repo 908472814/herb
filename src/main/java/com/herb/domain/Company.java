@@ -9,11 +9,10 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.herb.domain.user.Employee;
+import com.herb.domain.user.User;
 @Entity
 @Table(name="COMPANY")
 public class Company extends AbstractEntity implements Serializable{
@@ -23,41 +22,30 @@ public class Company extends AbstractEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Column(nullable = false)
+	@Column(name="NAME")
 	private String name;
 	
-	@Column(nullable = false)
+	@Column(name="TYPE")
 	private Integer type;
 	
-	@Column
+	@Column(name="ADDR")
 	private String addr;
 	
-	@Column
+	@Column(name="PHONE")
 	private String phone;
 	
-	@Column
+	@Column(name="FAX")
 	private String fax;
 	
-	@Column
+	@Column(name="EMAIL")
 	private String email;
 	
 	@OneToMany
 	@JoinColumn(name="C_ID")
-	private Set<Employee> employees;
-	
-	@ManyToMany
-	private Set<Company> companies;
+	private Set<User> user;
 	
 	@ElementCollection
 	private Map<String, String> attributes = new HashMap<String, String>();
-	
-	public Set<Company> getCompanies() {
-		return companies;
-	}
-
-	public void setCompanies(Set<Company> companies) {
-		this.companies = companies;
-	}
 
 	public String getName() {
 		return name;
@@ -107,12 +95,12 @@ public class Company extends AbstractEntity implements Serializable{
 		this.email = email;
 	}
 
-	public Set<Employee> getEmployees() {
-		return employees;
+	public Set<User> getUser() {
+		return user;
 	}
 
-	public void setEmployees(Set<Employee> employees) {
-		this.employees = employees;
+	public void setUser(Set<User> user) {
+		this.user = user;
 	}
 
 	public Map<String, String> getAttributes() {

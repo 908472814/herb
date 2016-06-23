@@ -17,22 +17,34 @@ public class LoginedUser extends AbstractEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Column(nullable = false)
+	@Column(name="IP")
 	private String ip;
 	
-	@Column
-	private String mac_addr;
+	@Column(name="MAC_ADDR")
+	private String macAddr;
 	
-	@Column(nullable = false)
+	@Column(name="LOGIN_TIME")
 	private Timestamp loginTime;
 	
-	@Column(nullable = false)
+	@Column(name="JSESSION_ID")
 	private String jsessionid;
 	
-	@Column(nullable = false)
+	@Column(name="TOKEN")
 	private String token;
 	
 	
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	public String getMacAddr() {
+		return macAddr;
+	}
+	public void setMacAddr(String macAddr) {
+		this.macAddr = macAddr;
+	}
 	public Timestamp getLoginTime() {
 		return loginTime;
 	}

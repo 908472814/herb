@@ -5,9 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.herb.domain.AbstractEntity;
@@ -26,18 +24,11 @@ public class Role extends AbstractEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column(nullable = false)
+	@Column(name="NAME")
 	private String name;
 
-	@Column
-	private String desc;
-	
 	@ManyToMany
-	private Set<FunctionalPermissions> fnctnlPermissions;
-
-	@OneToMany
-	@JoinColumn(name = "role_id")
-	private Set<Employee> employees;
+	private Set<FunctionalPermission> fnctnlPermissions;
 
 	public String getName() {
 		return name;
@@ -51,13 +42,6 @@ public class Role extends AbstractEntity implements Serializable {
 		this.name = name;
 	}
 
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
 
 //	public Set<User> getUser() {
 //		return user;
@@ -67,16 +51,15 @@ public class Role extends AbstractEntity implements Serializable {
 //		this.user = user;
 //	}
 
-	
 	public Role() {
 
 	}
 
-	public Set<FunctionalPermissions> getFnctnlPermissions() {
+	public Set<FunctionalPermission> getFnctnlPermissions() {
 		return fnctnlPermissions;
 	}
 
-	public void setFnctnlPermissions(Set<FunctionalPermissions> fnctnlPermissions) {
+	public void setFnctnlPermissions(Set<FunctionalPermission> fnctnlPermissions) {
 		this.fnctnlPermissions = fnctnlPermissions;
 	}
 

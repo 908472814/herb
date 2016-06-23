@@ -1,8 +1,9 @@
-function postDate(data, url, successCallback) {
+function postDate(data, url,isAsync,successCallback) {
 	$.ajax({
 		url : url,
 		dataType : 'json',
 		type : 'POST',
+		async:isAsync,
 		data : JSON.stringify(data),
 		contentType : 'application/json',
 		success : successCallback

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import com.herb.domain.AbstractEntity;
 
 @Entity
-@Table(name = "FAULTCODE")
+@Table(name = "FAULT_CODE")
 public class FaultCode extends AbstractEntity implements Serializable{
 
 	/**
@@ -17,14 +17,15 @@ public class FaultCode extends AbstractEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Column
+	@Column(name="FAULT_CODE")
 	private Integer faultCode;
 	
-	@Column
+	@Column(name="FAULT_NAME")
 	private String faultName;
 	
-	@Column
+	@Column(name="FAULT_DESC")
 	private String faultDesc;
+	
 	public Integer getFaultCode() {
 		return faultCode;
 	}

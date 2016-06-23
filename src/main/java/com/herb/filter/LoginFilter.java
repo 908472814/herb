@@ -9,6 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import com.alibaba.fastjson.JSON;
+import com.herb.enumeration.ElevatorTypeEnum;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,8 +32,7 @@ public class LoginFilter implements Filter{
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-		
+		arg0.getServletContext().setAttribute("elevatorType", ElevatorTypeEnum.toJSONString());
 	}
 
 }

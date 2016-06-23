@@ -1,15 +1,18 @@
 package com.herb.domain.elevator;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.herb.domain.AbstractEntity;
 @Entity
-@Table(name="MONITORDEVICE")
+@Table(name="MONITOR_DEVICE")
 public class MonitorDevice extends AbstractEntity implements Serializable{
 	
 	/**
@@ -17,51 +20,34 @@ public class MonitorDevice extends AbstractEntity implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Column
+	@Column(name="SERIAL_NUM")
 	private String serialNum;
 	
-	@Column
-	private String type;
-	
-	@Column
+	@Column(name="VERSION")
 	private String version;
 	
-	@Column
+	@Column(name="HARDWARE_VERSION")
+	private String hardwareversion;
+	
+	@Column(name="SOFT_VERSION")
 	private String softVersion;
 	
-	@Column
+	@Column(name="COMMUNICATION_MODE")
 	private String communicationMode;
 	
-	@Column
-	private String inputVoltage;
+	@ManyToOne
+	private MonitorDevModel monitorDevModel;
 	
-	@Column
-	private Boolean hasUPS;
+	@ElementCollection
+	private Map<String, String> attributes = new HashMap<String, String>();
 	
-	@Column
-	private String desc;
-	
-	@OneToOne
-	private Elevator elevator;
-	
-	public Elevator getElevator() {
-		return elevator;
-	}
-	public void setElevator(Elevator elevator) {
-		this.elevator = elevator;
-	}
 	public String getSerialNum() {
 		return serialNum;
 	}
 	public void setSerialNum(String serialNum) {
 		this.serialNum = serialNum;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+	
 	public String getVersion() {
 		return version;
 	}
@@ -74,30 +60,29 @@ public class MonitorDevice extends AbstractEntity implements Serializable{
 	public void setCommunicationMode(String communicationMode) {
 		this.communicationMode = communicationMode;
 	}
-	public String getInputVoltage() {
-		return inputVoltage;
-	}
-	public void setInputVoltage(String inputVoltage) {
-		this.inputVoltage = inputVoltage;
-	}
 	
-	public Boolean getHasUPS() {
-		return hasUPS;
-	}
-	public void setHasUPS(Boolean hasUPS) {
-		this.hasUPS = hasUPS;
-	}
-	public String getDesc() {
-		return desc;
-	}
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
 	public String getSoftVersion() {
 		return softVersion;
 	}
 	public void setSoftVersion(String softVersion) {
 		this.softVersion = softVersion;
 	}
-	
+	public MonitorDevModel getMonitorDevModel() {
+		return monitorDevModel;
+	}
+	public void setMonitorDevModel(MonitorDevModel monitorDevModel) {
+		this.monitorDevModel = monitorDevModel;
+	}
+	public Map<String, String> getAttributes() {
+		return attributes;
+	}
+	public void setAttributes(Map<String, String> attributes) {
+		this.attributes = attributes;
+	}
+	public String getHardwareversion() {
+		return hardwareversion;
+	}
+	public void setHardwareversion(String hardwareversion) {
+		this.hardwareversion = hardwareversion;
+	}
 }
